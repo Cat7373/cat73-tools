@@ -1,6 +1,8 @@
 # Cat73-Tools
 二喵的小工具们
 
+后端技术栈选用 [Koa](https://koajs.com)，前端技术栈选用 [Vue3](https://v3.cn.vuejs.org/) + [Element-Plus](https://v3.cn.vuejs.org) + [Vite](https://cn.vitejs.dev)
+
 ## 功能列表
 | 名称 | 子功能 | 说明 |
 | ---- | ------ | ---- |
