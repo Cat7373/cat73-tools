@@ -52,7 +52,7 @@ server	{
     root /var/www/cat73-tools;
 
     location /api {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3001;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -69,3 +69,4 @@ server	{
 * 定时任务支持
 * 数据库支持
 * 随机双色球号码并分析
+* 前端 setup 语法？

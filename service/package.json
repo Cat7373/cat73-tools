@@ -1,6 +1,6 @@
 {
-  "name": "shuang-se-qiu",
-  "version": "0.0.0",
+  "name": "cat73-tools-service",
+  "version": "0.0.1",
   "license": "LGPL-3.0+",
   "type": "module",
   "scripts": {
