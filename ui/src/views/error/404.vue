@@ -3,33 +3,30 @@ span 您输入的地址不存在，
   a(href="javascript:void(0)", @click="back") 点击返回主页({{ timeout }})
 </template>
 
-<script>
-export default {
-  name: '404',
-  data() {
-    return {
-      timer: 0,
-      timeout: 10,
-    }
-  },
-  mounted() {
-    this.timer = setInterval(() => {
-      this.timeout--
-      if (this.timeout === 0) {
-        this.back()
-      }
-    }, 1000)
-  },
-  beforeUnmounted() {
-    if (this.timer) {
-      clearInterval(this.timer)
-      this.timer = 0
-    }
-  },
-  methods: {
-    back() {
-      this.$router.push({ path: '/' })
-    }
-  }
+<script setup>
+import { ref, onBeforeUnmount } from 'vue'
+import router from '@/router'
+
+// 返回超时时间
+let timeout = ref(10)
+// 定时器句柄
+let timer = 0
+
+// 返回首页
+const back = () => {
+  router.push({ path: '/' })
 }
+
+// 超时后自动返回的定时器
+timer = setInterval(() => {
+  timeout.value -= 1
+  if (timeout.value <= 0) {
+    back()
+  }
+}, 1000)
+
+// 清理定时器
+onBeforeUnmount(() => {
+  clearInterval(timer)
+})
 </script>
