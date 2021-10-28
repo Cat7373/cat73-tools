@@ -1,4 +1,4 @@
-import nodeHtmlParser from 'node-html-parser'
+import { parse, HTMLElement } from 'node-html-parser'
 import { ssqHistory as fetchSsqHistory } from '../api/ssq.js'
 
 /**
@@ -16,9 +16,9 @@ function paeseNumber(str) {
  */
 async function ssqHistory() {
     const { data } = await fetchSsqHistory()
-    const dom = nodeHtmlParser.parse(data)
+    const dom = parse(data)
     const tdata = dom.querySelector('#tdata').childNodes
-            .filter(node => node instanceof nodeHtmlParser.HTMLElement)
+            .filter(node => node instanceof HTMLElement)
     const result = tdata.map(tr => {
         const vals = tr.childNodes.map(td => td.innerText)
 
